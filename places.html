@@ -1,0 +1,76 @@
+<!Doctype html>
+<html lang="th">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport"content="width=device-width,initial-scale=1">
+<title>ที่เที่ยว | เที่ยวบ้านเรา</title>
+<link rel="stylesheet"href="style.css">
+</head>
+<body>
+<header>
+<p class="site-name">เที่ยวบ้านเรา</p>
+<nav aria-label="เมนูหลัก">
+<ul>
+<li><a href="index.html">หน้าแรก</a></li>
+<li><a href ="places.html">ที่เที่ยว</a></li>
+<li><a href="food.html">อาหาร</a></li>
+<li><a href="plan.html">วางแผนเที่ยว</a><li>
+<li><a href="travel.html">ข้อมูลการเดินทาง</a></li>
+<li><a href="longin.html">เข้าสู่ระบบ</a></li>
+</ul>
+</nav>
+</header>
+<main>
+<h1>แหล่งท่องเที่ยว</h1>
+<h2>ตลาดชุมชน</h2>
+<section class="gallery">
+  
+    <div class="slider">
+
+        <div class="slides">
+            <img src="images/market1.jpg" alt="ภาพท่องเที่ยว 1">
+            <img src="images/89.jpg" alt="ภาพท่องเที่ยว 2">
+            <img src="images/189.jpg" alt="ภาพท่องเที่ยว 3">
+        </div>
+
+        <button class="prev" onclick="changeSlide(-1)">❮</button>
+        <button class="next" onclick="changeSlide(1)">❯</button>
+
+    </div>
+
+    <div class="dots">
+        <span onclick="currentSlide(0)"></span>
+        <span onclick="currentSlide(1)"></span>
+        <span onclick="currentSlide(2)"></span>
+    </div>
+</section>
+<script>
+  let currentIndex = 0;
+  const slideBox = document.querySelector('.slides');
+  const allImgs = document.querySelectorAll('.slides img');
+
+  function moveSlide(direction) {
+    currentIndex += direction;
+    if (currentIndex >= allImgs.length) {
+      currentIndex = 0;
+    } else if (currentIndex < 0) {
+      currentIndex = allImgs.length - 1;
+    }
+    slideBox.style.transform = `translateX(-${currentIndex * 100}%)`;
+  }
+
+  setInterval(() => moveSlide(1), 3000);
+</script>
+<p>เดินชมร้านค้าและเลือกซื้อผลิตภัณฑ์จากคนในพื้นที่</p>
+<h3>จุดชมวิว</h3>
+ <img src="images/156.jpg" alt="ภาพท่องเที่ยว 1">
+<p>แวะพักผ่อนและถ่ายภาพทิวทัศน์ของชุมชน</p>
+<section class="card">
+<a class="button" href="places.html">จัดแผนเที่ยวหนึ่งวัน</a>
+</section>
+</main>
+<footer>
+<p>พิมพ์นิภา 022|ใบงานฝึกปฏิบัติการสร้างเว็บไซต์ทางธุรกิจ</p>
+</footer>
+</body>
+</html>

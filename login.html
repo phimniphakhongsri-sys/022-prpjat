@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>เข้าสู่ระบบ | เที่ยวบ้านเรา</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <p class="site-name">เที่ยวบ้านเรา</p>
+    <nav aria-label="เมนูหลัก">
+      <ul>
+        <li><a href="index.html">หน้าแรก</a></li>
+        <li><a href="places.html">ที่เที่ยว</a></li>
+        <li><a href="food.html">อาหาร</a></li>
+        <li><a href="plan.html">วางแผนเที่ยว</a></li>
+        <li><a href="travel.html">ข้อมูลการเดินทาง</a></li>
+        <li><a href="login.html" aria-current="page">เข้าสู่ระบบ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="login-card">
+      <div class="login-header">
+        <h1>เข้าสู่ระบบ</h1>
+        <p>ยินดีต้อนรับสู่เว็บไซต์เที่ยวบ้านเรา</p>
+      </div>
+
+      <form id="loginForm" onsubmit="handleLogin(event)">
+        <!-- ชื่อผู้ใช้ -->
+        <div class="form-group">
+          <label for="username">ชื่อผู้ใช้</label>
+          <input type="text" id="username" name="username" placeholder="กรอกชื่อผู้ใช้" required>
+        </div>
+
+        <!-- รหัสผ่าน + ปุ่มแสดง/ซ่อน -->
+        <div class="form-group">
+          <label for="password">รหัสผ่าน</label>
+          <div class="password-wrapper">
+            <input type="password" id="password" name="password" placeholder="กรอกรหัสผ่าน" required>
+            <button type="button" id="toggleBtn" class="toggle-password" onclick="togglePassword()">แสดง</button>
+          </div>
+        </div>
+
+        <!-- ประเภทผู้ใช้งาน -->
+        <div class="form-group">
+          <label for="role">ประเภทผู้ใช้งาน</label>
+          <select id="role" name="role">
+            <option value="user">สมาชิก (User)</option>
+            <option value="admin">ผู้ดูแลระบบ (Admin)</option>
+          </select>
+        </div>
+
+        <!-- ปุ่มเข้าสู่ระบบ -->
+        <button type="submit" class="button login-submit">เข้าสู่ระบบ</button>
+      </form>
+
+      <!-- กล่องบัญชีทดลองสำหรับฝึกปฏิบัติ -->
+      <div class="demo-account">
+        <strong>บัญชีทดลองสำหรับฝึกปฏิบัติ</strong>
+        <p>Admin: <code>admin</code> / <code>admin123</code></p>
+        <p>User: <code>user</code> / <code>1234</code></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>พิมพ์นิภา 022 | ใบงานฝึกปฏิบัติการสร้างเว็บไซต์ทางธุรกิจ</p>
+  </footer>
+
+  <script>
+    // ฟังก์ชันกดปุ่ม แสดง / ซ่อน รหัสผ่าน
+    function togglePassword() {
+      const pwdInput = document.getElementById('password');
+      const toggleBtn = document.getElementById('toggleBtn');
+      if (pwdInput.type === 'password') {
+        pwdInput.type = 'text';
+        toggleBtn.textContent = 'ซ่อน';
+      } else {
+        pwdInput.type = 'password';
+        toggleBtn.textContent = 'แสดง';
+      }
+    }
+
+    // ฟังก์ชันจำลองการเข้าสู่ระบบ
+    function handleLogin(event) {
+      event.preventDefault();
+      const user = document.getElementById('username').value.trim();
+      const pass = document.getElementById('password').value.trim();
+      const role = document.getElementById('role').value;
+
+      if ((role === 'admin' && user === 'admin' && pass === 'admin123') ||
+          (role === 'user' && user === 'user' && pass === '1234')) {
+        alert('เข้าสู่ระบบสำเร็จ! ยินดีต้อนรับคุณ ' + user);
+        window.location.href = 'index.html';
+      } else {
+        alert('ชื่อผู้ใช้ รหัสผ่าน หรือประเภทผู้ใช้งานไม่ถูกต้อง (ลองใช้บัญชีทดลองด้านล่าง)');
+      }
+    }
+  </script>
+</body>
+</html>

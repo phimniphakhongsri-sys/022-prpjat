@@ -1,0 +1,77 @@
+<!Doctype html>
+<html lang="th">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport"content="width=device-width,initial-scale=1">
+<title>วางแผนเที่ยว| เที่ยวบ้านเรา</title>
+<link rel="stylesheet"href="style.css">
+</head>
+<body>
+<header>
+<p class="site-name">เที่ยวบ้านเรา</p>
+<nav aria-label="เมนูหลัก">
+<ul>
+<li><a href="index.html">หน้าแรก</a></li>
+<li><a href ="places.html">ที่เที่ยว</a></li>
+<li><a href="food.html">อาหาร</a></li>
+<li><a href="plan.html">วางแผนเที่ยว</a><li>
+<li><a href="travel.html">ข้อมูลการเดินทาง</a></li>
+</ul>
+</nav>
+</header>
+<main>
+<h1>แผนเที่ยวหนึ่งวัน</h1>
+<h2>ลำดับการเที่ยว</h2>
+<section class="gallery">
+  
+    <div class="slider">
+
+        <div class="slides">
+            <img src="images/22.jpg" alt="ภาพท่องเที่ยว 1">
+            <img src="images/556.jpg" alt="ภาพท่องเที่ยว 2">
+            <img src="images/55.jpg" alt="ภาพท่องเที่ยว 3">
+        </div>
+
+        <button class="prev" onclick="changeSlide(-1)">❮</button>
+        <button class="next" onclick="changeSlide(1)">❯</button>
+
+    </div>
+
+    <div class="dots">
+        <span onclick="currentSlide(0)"></span>
+        <span onclick="currentSlide(1)"></span>
+        <span onclick="currentSlide(2)"></span>
+    </div>
+</section>
+<script>
+  let currentIndex = 0;
+  const slideBox = document.querySelector('.slides');
+  const allImgs = document.querySelectorAll('.slides img');
+
+  function moveSlide(direction) {
+    currentIndex += direction;
+    if (currentIndex >= allImgs.length) {
+      currentIndex = 0;
+    } else if (currentIndex < 0) {
+      currentIndex = allImgs.length - 1;
+    }
+    slideBox.style.transform = `translateX(-${currentIndex * 100}%)`;
+  }
+
+  setInterval(() => moveSlide(1), 3000);
+</script>
+<p>1. ช่วงเช้า รับแสงแดดชายเช้าริมทะเลอ่าวประจวบ</p>
+<img src="images/22.jpg" alt="ภาพท่องเที่ยว 1">
+<p>2. ช่วงกลางวัน รับประทานอาหารกลางวันที่ร้านเจ้แตงพริกเผ็ดตรงทางรถไฟประจวบ</p>
+<img src="images/556.jpg" alt="ภาพท่องเที่ยว 1">
+<p>3. ช่วงบ่ายไปจุดชมวิวเขาหินเทินแบบชัดแจ๋วววและแวะซื้อของฝาก</p>
+<img src="images/55.jpg" alt="ภาพท่องเที่ยว 1">
+<section class="card">
+<a class="button" href="travel.html">ดูข้อมูลการเดินทาง</a>
+</section>
+</main>
+<footer>
+<p>พิมพ์นิภา 022|ใบงานฝึกปฏิบัติการสร้างเว็บไซต์ทางธุรกิจ</p>
+</footer>
+</body>
+</html>

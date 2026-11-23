@@ -1,0 +1,80 @@
+<!Doctype html>
+<html lang="th">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport"content="width=device-width,initial-scale=1">
+<title>หน้าแรก | เที่ยวบ้านเรา</title>
+<link rel="stylesheet"href="style.css">
+</head>
+<body>
+<header>
+<p class="site-name">เที่ยวบ้านเรา</p>
+<nav aria-label="เมนูหลัก">
+<ul>
+<li><a href="index.html">หน้าแรก</a></li>
+<li><a href ="places.html">ที่เที่ยว</a></li>
+<li><a href="food.html">อาหาร</a></li>
+<li><a href="plan.html">วางแผนเที่ยว</a><li>
+<li><a href="travel.html">ข้อมูลการเดินทาง</a></li>
+<li><a href="longin.html">เข้าสู่ระบบ</a></li>
+</ul>
+</nav>
+</header>
+<main>
+<h1>เที่ยวบ้านเราในหนึ่งวัน</h1>
+<section class="gallery">
+  
+    <div class="slider">
+
+        <div class="slides">
+            <img src="images/aomanow.jpg" alt="ภาพท่องเที่ยว 1">
+            <img src="images/Kaow.jpg" alt="ภาพท่องเที่ยว 2">
+            <img src="images/KLM.jpg" alt="ภาพท่องเที่ยว 3">
+            <img src="images/lukmuang.jpg" alt="ภาพท่องเที่ยว 4">
+            <img src="images/sapanpla.jpg" alt="ภาพท่องเที่ยว 5">
+            <img src="images/144.webp" alt="ภาพท่องเที่ยว 6">
+        </div>
+
+        <button class="prev" onclick="changeSlide(-1)">❮</button>
+        <button class="next" onclick="changeSlide(1)">❯</button>
+
+    </div>
+
+    <div class="dots">
+        <span onclick="currentSlide(0)"></span>
+        <span onclick="currentSlide(1)"></span>
+        <span onclick="currentSlide(2)"></span>
+        <span onclick="currentSlide(3)"></span>
+        <span onclick="currentSlide(4)"></span>
+        <span onclick="currentSlide(5)"></span>
+    </div>
+</section>
+<script>
+  let currentIndex = 0;
+  const slideBox = document.querySelector('.slides');
+  const allImgs = document.querySelectorAll('.slides img');
+
+  function moveSlide(direction) {
+    currentIndex += direction;
+    if (currentIndex >= allImgs.length) {
+      currentIndex = 0;
+    } else if (currentIndex < 0) {
+      currentIndex = allImgs.length - 1;
+    }
+    slideBox.style.transform = `translateX(-${currentIndex * 100}%)`;
+  }
+
+  setInterval(() => moveSlide(1), 3000);
+</script>
+<p>สัมผัสเสน่ห์ทะเลสวย เดินชิลตลาดชุมชน และอิ่มอร่อยกับอาหารพื้นถิ่นครบจบในวันเดียว </p>
+<section class="card">
+<h2>เริ่มจากจุดที่คุณสนใจ</h2>
+<p>เลือกสถานที่ที่อยากไป และจัดเส้นทางให้เหมาะสมกับเวลาของคุณ</p>
+<a class="button" href="places.html">ดูแหล่งท่องเที่ยว</a>
+</section>
+</main>
+<footer>
+<p>พิมพ์นิภา 022|ใบงานฝึกปฏิบัติการสร้างเว็บไซต์ทางธุรกิจ</p>
+</footer>
+</body>
+</html>
